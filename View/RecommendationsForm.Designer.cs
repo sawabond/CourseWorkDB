@@ -95,7 +95,7 @@
             this.Controls.Add(this.label_TheMostPopularDesserts);
             this.Controls.Add(this.dataGridViewMostPopularDesserts);
             this.Name = "RecommendationsForm";
-            this.Text = "RecommendationsForm";
+            this.Text = "Розсилка рекомендацій";
             this.Load += new System.EventHandler(this.RecommendationsForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMostPopularDesserts)).EndInit();
             this.ResumeLayout(false);

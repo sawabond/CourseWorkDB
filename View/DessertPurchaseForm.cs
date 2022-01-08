@@ -165,5 +165,13 @@ namespace CourseWorkDB
             textBox_Income.Text = string.Empty;
             textBox_Income.Enabled = true;
         }
+
+        private void textBox_PurchaseSum_TextChanged(object sender, EventArgs e)
+        {
+            if (checkBox_Card.Checked)
+            {
+                textBox_Income.Text = textBox_PurchaseSum.Text;
+            }
+        }
     }
 }

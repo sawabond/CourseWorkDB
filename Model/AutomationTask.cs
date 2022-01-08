@@ -6,6 +6,7 @@ using System.Data;
 using System.Xml.Serialization;
 using System.IO;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CourseWorkDB
 {
@@ -34,7 +35,7 @@ namespace CourseWorkDB
             CreateRecommendationLetterText();
             SendEmail();
         }
-        public void SendEmail()
+        public async void SendEmail()
         {
             var sender = new SmtpClient()
             {
@@ -63,7 +64,7 @@ namespace CourseWorkDB
 
             try
             {
-                sender.Send(mailMessage);
+                await Task.Run(() => sender.Send(mailMessage));
             }
             catch (Exception ex)
             {

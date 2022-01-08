@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.ComponentModel.DataAnnotations;
 
 namespace CourseWorkDB
 {
     public partial class RecommendationsForm : Form
     {
         public DataGridView dgMostPopularDesserts { get => dataGridViewMostPopularDesserts; }
+        private string receiverName;
         public RecommendationsForm()
         {
             InitializeComponent();
@@ -31,11 +33,18 @@ namespace CourseWorkDB
         private void button_OK_Click(object sender, EventArgs e)
         {
             var at = new AutomationTask(this);
-            at.ReceiverName = textBox1.Text;
-            at.PerformAutomation();
-            MessageBox.Show("Рекомендації були відправлені на вказану пошту", "Рекомендації відправлені",
+
+            if ((new EmailAddressAttribute()).IsValid(textBox1.Text))
+            {
+                at.ReceiverName = textBox1.Text;
+                at.PerformAutomation();
+                MessageBox.Show("Рекомендації були відправлені на вказану пошту", "Рекомендації відправлені",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
-            Dispose();
+                Dispose();
+                return;
+            }
+            MessageBox.Show("Перевірте коректність даних", "Помилка",
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

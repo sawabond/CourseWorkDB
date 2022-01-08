@@ -238,6 +238,7 @@
             this.textBox_PurchaseSum.Name = "textBox_PurchaseSum";
             this.textBox_PurchaseSum.Size = new System.Drawing.Size(100, 22);
             this.textBox_PurchaseSum.TabIndex = 52;
+            this.textBox_PurchaseSum.TextChanged += new System.EventHandler(this.textBox_PurchaseSum_TextChanged);
             // 
             // label_Articul
             // 

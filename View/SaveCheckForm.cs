@@ -74,8 +74,12 @@ namespace CourseWorkDB
 
         private void button_СhooseCheck_Click(object sender, EventArgs e)
         {
-            _checkId = Convert.ToInt32(
-                dataGridViewAllPurchases[2, dataGridViewAllPurchases.SelectedRows[0].Index].Value);
+            try
+            {
+                _checkId = Convert.ToInt32(
+                    dataGridViewAllPurchases[2, dataGridViewAllPurchases.SelectedRows[0].Index].Value);
+            }
+            catch { }
 
             using (var conn = new SqlConnection(Main.CONNECTION_STRING))
             {
