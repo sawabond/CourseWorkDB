@@ -45,22 +45,22 @@
             this.рядРозподілуВиробниківЗаКількістюТоварівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.відхиленняВідСередньоїЦіниДесертівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зберегтиЧекToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.отриматиРекомендацїіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.зберегтиПоточніДаніToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поставникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
             this.mANUFACTURERSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cond_departmentDataSet = new CourseWorkDB.cond_departmentDataSet();
             this.dESSERTSTableAdapter = new CourseWorkDB.cond_departmentDataSetTableAdapters.DESSERTSTableAdapter();
             this.dESSERTSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.mANUFACTURERSTableAdapter = new CourseWorkDB.cond_departmentDataSetTableAdapters.MANUFACTURERSTableAdapter();
-            this.поставникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.поставкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.створитиПоставкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказиДесертівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.створитиПоставкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.покупкаТоваруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.conditerDepartmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.отриматиРекомендацїіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.зберегтиПоточніДаніToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.покупкаТоваруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mANUFACTURERSBindingSource)).BeginInit();
@@ -76,11 +76,10 @@
             this.menuStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.десертиToolStripMenuItem,
             this.виробникиToolStripMenuItem,
+            this.поставникиToolStripMenuItem,
             this.статистикаToolStripMenuItem,
             this.зберегтиЧекToolStripMenuItem,
-            this.отриматиРекомендацїіToolStripMenuItem,
-            this.зберегтиПоточніДаніToolStripMenuItem,
-            this.поставникиToolStripMenuItem});
+            this.покупкаТоваруToolStripMenuItem});
             this.menuStripMain.Location = new System.Drawing.Point(0, 0);
             this.menuStripMain.Name = "menuStripMain";
             this.menuStripMain.Size = new System.Drawing.Size(1013, 28);
@@ -90,6 +89,7 @@
             // 
             // десертиToolStripMenuItem
             // 
+            this.десертиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.десертиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.додатиToolStripMenuItem,
             this.редагуватиToolStripMenuItem,
@@ -130,6 +130,7 @@
             // 
             // виробникиToolStripMenuItem
             // 
+            this.виробникиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.виробникиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.додатиВиробникаToolStripMenuItem,
             this.редагуватиВиробникаToolStripMenuItem,
@@ -162,6 +163,7 @@
             // 
             // статистикаToolStripMenuItem
             // 
+            this.статистикаToolStripMenuItem.BackColor = System.Drawing.Color.MistyRose;
             this.статистикаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.найпопулярнішіДесертиToolStripMenuItem,
             this.модаВиробниківToolStripMenuItem,
@@ -202,24 +204,19 @@
             // 
             // зберегтиЧекToolStripMenuItem
             // 
+            this.зберегтиЧекToolStripMenuItem.BackColor = System.Drawing.Color.MistyRose;
             this.зберегтиЧекToolStripMenuItem.Name = "зберегтиЧекToolStripMenuItem";
             this.зберегтиЧекToolStripMenuItem.Size = new System.Drawing.Size(113, 24);
             this.зберегтиЧекToolStripMenuItem.Text = "Зберегти чек";
             this.зберегтиЧекToolStripMenuItem.Click += new System.EventHandler(this.зберегтиЧекToolStripMenuItem_Click);
             // 
-            // отриматиРекомендацїіToolStripMenuItem
+            // поставникиToolStripMenuItem
             // 
-            this.отриматиРекомендацїіToolStripMenuItem.Name = "отриматиРекомендацїіToolStripMenuItem";
-            this.отриматиРекомендацїіToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
-            this.отриматиРекомендацїіToolStripMenuItem.Text = "Отримати рекомендацїі";
-            this.отриматиРекомендацїіToolStripMenuItem.Click += new System.EventHandler(this.отриматиРекомендацїіToolStripMenuItem_Click);
-            // 
-            // зберегтиПоточніДаніToolStripMenuItem
-            // 
-            this.зберегтиПоточніДаніToolStripMenuItem.Name = "зберегтиПоточніДаніToolStripMenuItem";
-            this.зберегтиПоточніДаніToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
-            this.зберегтиПоточніДаніToolStripMenuItem.Text = "Зберегти список поставників";
-            this.зберегтиПоточніДаніToolStripMenuItem.Click += new System.EventHandler(this.зберегтиПоточніДаніToolStripMenuItem_Click);
+            this.поставникиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.поставникиToolStripMenuItem.Name = "поставникиToolStripMenuItem";
+            this.поставникиToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.поставникиToolStripMenuItem.Text = "Поставники";
+            this.поставникиToolStripMenuItem.Click += new System.EventHandler(this.поставникиToolStripMenuItem_Click);
             // 
             // dataGridViewMain
             // 
@@ -258,13 +255,6 @@
             // 
             this.mANUFACTURERSTableAdapter.ClearBeforeFill = true;
             // 
-            // поставникиToolStripMenuItem
-            // 
-            this.поставникиToolStripMenuItem.Name = "поставникиToolStripMenuItem";
-            this.поставникиToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
-            this.поставникиToolStripMenuItem.Text = "Поставники";
-            this.поставникиToolStripMenuItem.Click += new System.EventHandler(this.поставникиToolStripMenuItem_Click);
-            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -272,7 +262,8 @@
             this.поставкиToolStripMenuItem,
             this.заказиToolStripMenuItem,
             this.заказиДесертівToolStripMenuItem,
-            this.покупкаТоваруToolStripMenuItem});
+            this.отриматиРекомендацїіToolStripMenuItem,
+            this.зберегтиПоточніДаніToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 28);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1013, 28);
@@ -281,6 +272,7 @@
             // 
             // поставкиToolStripMenuItem
             // 
+            this.поставкиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.поставкиToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.створитиПоставкуToolStripMenuItem});
             this.поставкиToolStripMenuItem.Name = "поставкиToolStripMenuItem";
@@ -288,8 +280,16 @@
             this.поставкиToolStripMenuItem.Text = "Поставки";
             this.поставкиToolStripMenuItem.Click += new System.EventHandler(this.поставкиToolStripMenuItem_Click);
             // 
+            // створитиПоставкуToolStripMenuItem
+            // 
+            this.створитиПоставкуToolStripMenuItem.Name = "створитиПоставкуToolStripMenuItem";
+            this.створитиПоставкуToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.створитиПоставкуToolStripMenuItem.Text = "Створити поставку";
+            this.створитиПоставкуToolStripMenuItem.Click += new System.EventHandler(this.створитиПоставкуToolStripMenuItem_Click);
+            // 
             // заказиToolStripMenuItem
             // 
+            this.заказиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.заказиToolStripMenuItem.Name = "заказиToolStripMenuItem";
             this.заказиToolStripMenuItem.Size = new System.Drawing.Size(70, 24);
             this.заказиToolStripMenuItem.Text = "Закази";
@@ -297,29 +297,40 @@
             // 
             // заказиДесертівToolStripMenuItem
             // 
+            this.заказиДесертівToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.заказиДесертівToolStripMenuItem.Name = "заказиДесертівToolStripMenuItem";
             this.заказиДесертівToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
             this.заказиДесертівToolStripMenuItem.Text = "Закази десертів";
             this.заказиДесертівToolStripMenuItem.Click += new System.EventHandler(this.заказиДесертівToolStripMenuItem_Click);
             // 
-            // створитиПоставкуToolStripMenuItem
+            // отриматиРекомендацїіToolStripMenuItem
             // 
-            this.створитиПоставкуToolStripMenuItem.Name = "створитиПоставкуToolStripMenuItem";
-            this.створитиПоставкуToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
-            this.створитиПоставкуToolStripMenuItem.Text = "Створити поставку";
-            this.створитиПоставкуToolStripMenuItem.Click += new System.EventHandler(this.створитиПоставкуToolStripMenuItem_Click);
+            this.отриматиРекомендацїіToolStripMenuItem.BackColor = System.Drawing.Color.Moccasin;
+            this.отриматиРекомендацїіToolStripMenuItem.Name = "отриматиРекомендацїіToolStripMenuItem";
+            this.отриматиРекомендацїіToolStripMenuItem.Size = new System.Drawing.Size(190, 24);
+            this.отриматиРекомендацїіToolStripMenuItem.Text = "Отримати рекомендацїі";
+            this.отриматиРекомендацїіToolStripMenuItem.Click += new System.EventHandler(this.отриматиРекомендацїіToolStripMenuItem_Click_1);
+            // 
+            // зберегтиПоточніДаніToolStripMenuItem
+            // 
+            this.зберегтиПоточніДаніToolStripMenuItem.BackColor = System.Drawing.Color.Moccasin;
+            this.зберегтиПоточніДаніToolStripMenuItem.Name = "зберегтиПоточніДаніToolStripMenuItem";
+            this.зберегтиПоточніДаніToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
+            this.зберегтиПоточніДаніToolStripMenuItem.Text = "Зберегти список поставників";
             // 
             // покупкаТоваруToolStripMenuItem
             // 
+            this.покупкаТоваруToolStripMenuItem.BackColor = System.Drawing.Color.MistyRose;
             this.покупкаТоваруToolStripMenuItem.Name = "покупкаТоваруToolStripMenuItem";
             this.покупкаТоваруToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
             this.покупкаТоваруToolStripMenuItem.Text = "Покупка товару";
-            this.покупкаТоваруToolStripMenuItem.Click += new System.EventHandler(this.покупкаТоваруToolStripMenuItem_Click);
+            this.покупкаТоваруToolStripMenuItem.Click += new System.EventHandler(this.покупкаТоваруToolStripMenuItem_Click_1);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.MintCream;
             this.ClientSize = new System.Drawing.Size(1013, 528);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.dataGridViewMain);
@@ -366,10 +377,8 @@
         private System.Windows.Forms.ToolStripMenuItem модаВиробниківToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem рядРозподілуВиробниківЗаКількістюТоварівToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem зберегтиЧекToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem отриматиРекомендацїіToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem пошукToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem відхиленняВідСередньоїЦіниДесертівToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem зберегтиПоточніДаніToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem поставникиToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem поставкиToolStripMenuItem;
@@ -377,6 +386,8 @@
         private System.Windows.Forms.ToolStripMenuItem заказиДесертівToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem створитиПоставкуToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem покупкаТоваруToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem отриматиРекомендацїіToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem зберегтиПоточніДаніToolStripMenuItem;
     }
 }
 

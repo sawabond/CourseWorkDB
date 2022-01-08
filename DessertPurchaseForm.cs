@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -121,7 +122,7 @@ namespace CourseWorkDB
                     command.CommandText = $"INSERT INTO PURCHASE (purchase_cost, purchase_change, purchase_id, " +
                         $"purchase_payment, purchase_date, purchase_type, purchase_adress) " +
                         $"VALUES ({textBox_PurchaseSum.Text}, {textBox_Change.Text}, {purchase_id + 1}, {textBox_Income.Text}, " +
-                        $"'{DateTime.Now.ToString("d")}', 'karta', 'this_adress')";
+                        $"'{DateTime.Now.ToString("d")}', '{(checkBox_Card.Checked ? "Карта" : "Готівка")}', '{ConfigurationManager.AppSettings.Get("Adress")}')";
                     command.ExecuteNonQuery();
 
                     foreach (DataGridViewRow row in dataGridView1.Rows)
@@ -142,12 +143,13 @@ namespace CourseWorkDB
                     }
                     transaction.Commit();
                     MessageBox.Show("Покупка успішно здійснена");
+                    Close();
                 }
                 catch (Exception ex)
                 {
-                    // rollback if we got exception
-                    MessageBox.Show(ex.Message);
+                    MessageBox.Show("Виникла помилка протягом оформлення покупки. Спробуйте ще раз");
                     transaction.Rollback();
+                    Close();
                 }
             }
         }

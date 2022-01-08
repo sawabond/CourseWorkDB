@@ -433,5 +433,17 @@ namespace CourseWorkDB
             var dessertPurchaseForm = new DessertPurchaseForm();
             dessertPurchaseForm.ShowDialog();
         }
+
+        private void отриматиРекомендацїіToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var recommendationForm = new RecommendationsForm();
+            recommendationForm.ShowDialog();
+        }
+
+        private void покупкаТоваруToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var purchaseForm = new DessertPurchaseForm();
+            purchaseForm.ShowDialog();
+        }
     }
 }
