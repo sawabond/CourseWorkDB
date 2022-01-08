@@ -33,13 +33,47 @@ namespace CourseWorkDB
 
         private void виробникиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridViewMain.DataSource = mANUFACTURERSBindingSource;
+            using (var conn = new SqlConnection(CONNECTION_STRING))
+            {
+                conn.Open();
+
+                var da = new SqlDataAdapter(@"SELECT [manufacturer_name] назва
+      ,[head] голова
+      ,[phone] телефон
+      ,[adress] адреса
+      ,[city] місто
+  FROM [cond_department].[dbo].[MANUFACTURERS]", conn);
+                var ds = new DataSet();
+                da.Fill(ds);
+
+                dataGridViewMain.DataSource = ds?.Tables[0];
+            }
             //dataGridViewMain.Refresh();
         }
 
         private void десертиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            dataGridViewMain.DataSource = dESSERTSBindingSource;
+            using (var conn = new SqlConnection(CONNECTION_STRING))
+            {
+                conn.Open();
+
+                var da = new SqlDataAdapter(@"SELECT [articul] артикул
+      ,[dessert_name] назва
+      ,[net_weight] маса_нетто
+      ,[gross_weight] маса_брутто
+      ,[manufacturer_name] виробник
+      ,[wholesale_price] закупочна_ціна
+      ,[retail_price] ціна_продажу
+      ,[product_type] тип_десерту
+      ,[is_for_diabetics] для_діабетиків
+      ,[rating] рейтинг
+      ,[dessert_amount] кількість
+  FROM [cond_department].[dbo].[DESSERTS]", conn);
+                var ds = new DataSet();
+                da.Fill(ds);
+
+                dataGridViewMain.DataSource = ds?.Tables[0];
+            }
             //dataGridViewMain.Refresh();
         }
 
@@ -328,23 +362,6 @@ namespace CourseWorkDB
 
         }
 
-        private void зберегтиПоточніДаніToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            using (var conn = new SqlConnection(CONNECTION_STRING))
-            {
-                conn.Open();
-
-                var da = new SqlDataAdapter(
-                "SELECT * FROM SUPPLIER", conn);
-
-                var ds = new DataSet();
-                da.Fill(ds);
-
-                var saver = new PdfTableReportSaver(ds);
-                saver.SaveReport();
-            }
-        }
-
         private void поставникиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(CONNECTION_STRING))
@@ -444,6 +461,21 @@ namespace CourseWorkDB
         {
             var purchaseForm = new DessertPurchaseForm();
             purchaseForm.ShowDialog();
+        }
+
+        private void зберегтиПоточніДаніToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            var da = new SqlDataAdapter("SELECT * FROM SUPPLIER", new SqlConnection(CONNECTION_STRING));
+            var ds = new DataSet();
+            da.Fill(ds);
+
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Pdf File |*.pdf";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                var pdfTableReportSaver = new PdfTableReportSaver(ds, sfd);
+                pdfTableReportSaver.SaveReport();
+            }
         }
     }
 }

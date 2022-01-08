@@ -39,13 +39,14 @@
             this.додатиВиробникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.редагуватиВиробникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видалитиВиробникаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.поставникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.статистикаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.найпопулярнішіДесертиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.модаВиробниківToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.рядРозподілуВиробниківЗаКількістюТоварівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.відхиленняВідСередньоїЦіниДесертівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зберегтиЧекToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.поставникиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.покупкаТоваруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataGridViewMain = new System.Windows.Forms.DataGridView();
             this.mANUFACTURERSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cond_departmentDataSet = new CourseWorkDB.cond_departmentDataSet();
@@ -57,10 +58,9 @@
             this.створитиПоставкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.заказиДесертівToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.conditerDepartmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.отриматиРекомендацїіToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зберегтиПоточніДаніToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.покупкаТоваруToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conditerDepartmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.menuStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewMain)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mANUFACTURERSBindingSource)).BeginInit();
@@ -161,6 +161,14 @@
             this.видалитиВиробникаToolStripMenuItem.Text = "Видалити виробника";
             this.видалитиВиробникаToolStripMenuItem.Click += new System.EventHandler(this.видалитиВиробникаToolStripMenuItem_Click);
             // 
+            // поставникиToolStripMenuItem
+            // 
+            this.поставникиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.поставникиToolStripMenuItem.Name = "поставникиToolStripMenuItem";
+            this.поставникиToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.поставникиToolStripMenuItem.Text = "Поставники";
+            this.поставникиToolStripMenuItem.Click += new System.EventHandler(this.поставникиToolStripMenuItem_Click);
+            // 
             // статистикаToolStripMenuItem
             // 
             this.статистикаToolStripMenuItem.BackColor = System.Drawing.Color.MistyRose;
@@ -210,13 +218,13 @@
             this.зберегтиЧекToolStripMenuItem.Text = "Зберегти чек";
             this.зберегтиЧекToolStripMenuItem.Click += new System.EventHandler(this.зберегтиЧекToolStripMenuItem_Click);
             // 
-            // поставникиToolStripMenuItem
+            // покупкаТоваруToolStripMenuItem
             // 
-            this.поставникиToolStripMenuItem.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.поставникиToolStripMenuItem.Name = "поставникиToolStripMenuItem";
-            this.поставникиToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
-            this.поставникиToolStripMenuItem.Text = "Поставники";
-            this.поставникиToolStripMenuItem.Click += new System.EventHandler(this.поставникиToolStripMenuItem_Click);
+            this.покупкаТоваруToolStripMenuItem.BackColor = System.Drawing.Color.MistyRose;
+            this.покупкаТоваруToolStripMenuItem.Name = "покупкаТоваруToolStripMenuItem";
+            this.покупкаТоваруToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
+            this.покупкаТоваруToolStripMenuItem.Text = "Покупка товару";
+            this.покупкаТоваруToolStripMenuItem.Click += new System.EventHandler(this.покупкаТоваруToolStripMenuItem_Click_1);
             // 
             // dataGridViewMain
             // 
@@ -283,7 +291,7 @@
             // створитиПоставкуToolStripMenuItem
             // 
             this.створитиПоставкуToolStripMenuItem.Name = "створитиПоставкуToolStripMenuItem";
-            this.створитиПоставкуToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.створитиПоставкуToolStripMenuItem.Size = new System.Drawing.Size(222, 26);
             this.створитиПоставкуToolStripMenuItem.Text = "Створити поставку";
             this.створитиПоставкуToolStripMenuItem.Click += new System.EventHandler(this.створитиПоставкуToolStripMenuItem_Click);
             // 
@@ -317,14 +325,7 @@
             this.зберегтиПоточніДаніToolStripMenuItem.Name = "зберегтиПоточніДаніToolStripMenuItem";
             this.зберегтиПоточніДаніToolStripMenuItem.Size = new System.Drawing.Size(226, 24);
             this.зберегтиПоточніДаніToolStripMenuItem.Text = "Зберегти список поставників";
-            // 
-            // покупкаТоваруToolStripMenuItem
-            // 
-            this.покупкаТоваруToolStripMenuItem.BackColor = System.Drawing.Color.MistyRose;
-            this.покупкаТоваруToolStripMenuItem.Name = "покупкаТоваруToolStripMenuItem";
-            this.покупкаТоваруToolStripMenuItem.Size = new System.Drawing.Size(132, 24);
-            this.покупкаТоваруToolStripMenuItem.Text = "Покупка товару";
-            this.покупкаТоваруToolStripMenuItem.Click += new System.EventHandler(this.покупкаТоваруToolStripMenuItem_Click_1);
+            this.зберегтиПоточніДаніToolStripMenuItem.Click += new System.EventHandler(this.зберегтиПоточніДаніToolStripMenuItem_Click_1);
             // 
             // Main
             // 

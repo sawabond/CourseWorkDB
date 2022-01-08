@@ -20,6 +20,7 @@ namespace CourseWorkDB
             InitializeComponent();
         }
         public DataGridView GetPurchaseDataGridView { get => dataGridViewPurchase; }
+        public DataGridView GetAllPurchasesDataGridView { get => dataGridViewAllPurchases; }
         private void SaveCheckForm_Load(object sender, EventArgs e)
         {
             using (var conn = new SqlConnection(Main.CONNECTION_STRING))
@@ -27,7 +28,13 @@ namespace CourseWorkDB
                 conn.Open();
 
                 var da = new SqlDataAdapter(
-                "SELECT * FROM PURCHASE", conn);
+                @"SELECT [purchase_cost] вартість
+      ,[purchase_change] решта
+      ,[purchase_id] айді,[purchase_payment] внесена_сума
+      ,[purchase_date] дата_покупки
+      ,[purchase_type] тип_покупки
+      ,[purchase_adress] адреса
+  FROM [cond_department].[dbo].[PURCHASE]", conn);
 
                 var ds = new DataSet();
                 da.Fill(ds);
@@ -38,18 +45,31 @@ namespace CourseWorkDB
 
         private void dataGridViewPurchase_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewPurchase.Rows[e.RowIndex].Selected = true;
+            try
+            {
+                dataGridViewPurchase.Rows[e.RowIndex].Selected = true;
+            }
+            catch { }
         }
 
         private void button_SaveCheck_Click(object sender, EventArgs e)
         {
-            var checkFormer = new CheckFormer(this);
-            checkFormer.SaveCheckToWord(_checkId);
+            SaveFileDialog sfd = new SaveFileDialog();
+            sfd.Filter = "Pdf File |*.pdf";
+            if (sfd.ShowDialog() == DialogResult.OK)
+            {
+                var checkFormer = new CheckFormer(this, sfd);
+                checkFormer.SaveReport();
+            }
         }
 
         private void dataGridViewAllPurchases_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewAllPurchases.Rows[e.RowIndex].Selected = true;
+            try
+            {
+                dataGridViewAllPurchases.Rows[e.RowIndex].Selected = true;
+            }
+            catch { }
         }
 
         private void button_СhooseCheck_Click(object sender, EventArgs e)
@@ -63,9 +83,9 @@ namespace CourseWorkDB
                 var ds = new DataSet();
 
                 var da = new SqlDataAdapter(
-                    "SELECT DESSERTS.dessert_name, DESSERT_PURCHASE.dessert_amount, " +
-                    "DESSERTS.wholesale_price * DESSERT_PURCHASE.dessert_amount summa, " +
-                    "PURCHASE.purchase_adress, PURCHASE.purchase_type, PURCHASE.purchase_date " +
+                    "SELECT DESSERTS.dessert_name назва, DESSERT_PURCHASE.dessert_amount кількість, " +
+                    "DESSERTS.wholesale_price * DESSERT_PURCHASE.dessert_amount сума, " +
+                    "PURCHASE.purchase_adress адреса, PURCHASE.purchase_type тип_покупки, PURCHASE.purchase_date дата_покупки " +
                     "FROM DESSERTS, DESSERT_PURCHASE, PURCHASE " +
                     "WHERE DESSERTS.articul = DESSERT_PURCHASE.articul AND " +
                     "PURCHASE.purchase_id = DESSERT_PURCHASE.purchase_id " +

@@ -15,9 +15,11 @@ namespace CourseWorkDB
     class PdfTableReportSaver : IReportSaver
     {
         private readonly DataSet _dataSetToSave;
-        public PdfTableReportSaver(DataSet dgv)
+        private readonly SaveFileDialog _sfd;
+        public PdfTableReportSaver(DataSet dgv, SaveFileDialog sfd)
         {
             _dataSetToSave = dgv;
+            _sfd = sfd;
         }
 
         public void SaveReport()
@@ -26,7 +28,7 @@ namespace CourseWorkDB
 
             try
             {
-                PdfWriter.GetInstance(doc, new FileStream("D:\\Reports\\pdfTables.pdf", FileMode.Create));
+                PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(_sfd.FileName, FileMode.Create));
 
                 doc.Open();
 
@@ -72,7 +74,7 @@ namespace CourseWorkDB
                     }
                 }
                 doc.Add(table);
-                MessageBox.Show("Документ був збережений у D:\\Reports", "Успішне збереження",
+                MessageBox.Show($"Документ був збережений у {_sfd.FileName}", "Успішне збереження",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)

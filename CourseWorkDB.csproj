@@ -81,14 +81,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddSupplyForm.cs">
+    <Compile Include="View\AddSupplyForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddSupplyForm.Designer.cs">
+    <Compile Include="View\AddSupplyForm.Designer.cs">
       <DependentUpon>AddSupplyForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AutomationTask.cs" />
-    <Compile Include="CheckFormer.cs" />
+    <Compile Include="Model\AutomationTask.cs" />
+    <Compile Include="Model\CheckFormer.cs" />
     <Compile Include="cond_departmentDataSet.cs">
       <DependentUpon>cond_departmentDataSet.xsd</DependentUpon>
     </Compile>
@@ -104,65 +104,65 @@
       <DependentUpon>cond_departmentDataSet1.xsd</DependentUpon>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Compile>
-    <Compile Include="DessertPurchaseForm.cs">
+    <Compile Include="View\DessertPurchaseForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DessertPurchaseForm.Designer.cs">
+    <Compile Include="View\DessertPurchaseForm.Designer.cs">
       <DependentUpon>DessertPurchaseForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="DessertsEditForm.cs">
+    <Compile Include="View\DessertsEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DessertsEditForm.Designer.cs">
+    <Compile Include="View\DessertsEditForm.Designer.cs">
       <DependentUpon>DessertsEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IReportSaver.cs" />
-    <Compile Include="Main.cs">
+    <Compile Include="Model\IReportSaver.cs" />
+    <Compile Include="View\Main.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main.Designer.cs">
+    <Compile Include="View\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
-    <Compile Include="ManufacturersEditForm.cs">
+    <Compile Include="View\ManufacturersEditForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ManufacturersEditForm.Designer.cs">
+    <Compile Include="View\ManufacturersEditForm.Designer.cs">
       <DependentUpon>ManufacturersEditForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PdfTableReportSaver.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Model\PdfTableReportSaver.cs" />
+    <Compile Include="Model\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RecommendationsForm.cs">
+    <Compile Include="View\RecommendationsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RecommendationsForm.Designer.cs">
+    <Compile Include="View\RecommendationsForm.Designer.cs">
       <DependentUpon>RecommendationsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SaveCheckForm.cs">
+    <Compile Include="View\SaveCheckForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SaveCheckForm.Designer.cs">
+    <Compile Include="View\SaveCheckForm.Designer.cs">
       <DependentUpon>SaveCheckForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="SearchFilterSortForm.cs">
+    <Compile Include="View\SearchFilterSortForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SearchFilterSortForm.Designer.cs">
+    <Compile Include="View\SearchFilterSortForm.Designer.cs">
       <DependentUpon>SearchFilterSortForm.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="AddSupplyForm.resx">
+    <EmbeddedResource Include="View\AddSupplyForm.resx">
       <DependentUpon>AddSupplyForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DessertPurchaseForm.resx">
+    <EmbeddedResource Include="View\DessertPurchaseForm.resx">
       <DependentUpon>DessertPurchaseForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DessertsEditForm.resx">
+    <EmbeddedResource Include="View\DessertsEditForm.resx">
       <DependentUpon>DessertsEditForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main.resx">
+    <EmbeddedResource Include="View\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ManufacturersEditForm.resx">
+    <EmbeddedResource Include="View\ManufacturersEditForm.resx">
       <DependentUpon>ManufacturersEditForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -174,13 +174,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="RecommendationsForm.resx">
+    <EmbeddedResource Include="View\RecommendationsForm.resx">
       <DependentUpon>RecommendationsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SaveCheckForm.resx">
+    <EmbeddedResource Include="View\SaveCheckForm.resx">
       <DependentUpon>SaveCheckForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SearchFilterSortForm.resx">
+    <EmbeddedResource Include="View\SearchFilterSortForm.resx">
       <DependentUpon>SearchFilterSortForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="cond_departmentDataSet.xsc">
@@ -224,6 +224,13 @@
     <None Include="Checks\Application.docx">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\arial.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Reports\pdfTables.pdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="View\pdfTables.pdf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -240,9 +247,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Fonts\" />
-    <Folder Include="Reports\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

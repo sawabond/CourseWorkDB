@@ -82,3 +82,5 @@ C:\Users\Саша\Desktop\course-work-db\CourseWorkDB\obj\Debug\CourseWorkDB.csp
 C:\Users\Саша\Desktop\course-work-db\CourseWorkDB\obj\Debug\CourseWorkDB.csproj.CopyComplete
 C:\Users\Саша\Desktop\course-work-db\CourseWorkDB\obj\Debug\CourseWorkDB.exe
 C:\Users\Саша\Desktop\course-work-db\CourseWorkDB\obj\Debug\CourseWorkDB.pdb
+C:\Users\Саша\Desktop\course-work-db\CourseWorkDB\bin\Debug\Resources\arial.ttf
+C:\Users\Саша\Desktop\course-work-db\CourseWorkDB\bin\Debug\Reports\pdfTables.pdf
