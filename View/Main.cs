@@ -53,6 +53,11 @@ namespace CourseWorkDB
 
         private void десертиToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            UpdateDessertsDataGridView();
+            //dataGridViewMain.Refresh();
+        }
+        private void UpdateDessertsDataGridView()
+        {
             using (var conn = new SqlConnection(CONNECTION_STRING))
             {
                 conn.Open();
@@ -71,10 +76,19 @@ namespace CourseWorkDB
   FROM [cond_department].[dbo].[DESSERTS]", conn);
                 var ds = new DataSet();
                 da.Fill(ds);
-
+                int index = 0;
+                try
+                {
+                    index = dataGridViewMain.SelectedRows[0].Index;
+                }
+                catch (Exception) { }
                 dataGridViewMain.DataSource = ds?.Tables[0];
+                try
+                {
+                    dataGridViewMain.Rows[index].Selected = true;
+                }
+                catch (Exception) { }
             }
-            //dataGridViewMain.Refresh();
         }
 
         private void додатиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -85,6 +99,7 @@ namespace CourseWorkDB
 
             dESSERTSTableAdapter.Fill(cond_departmentDataSet.DESSERTS);
             cond_departmentDataSet.AcceptChanges();
+            UpdateDessertsDataGridView();
         }
 
         private void редагуватиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -116,6 +131,7 @@ namespace CourseWorkDB
                 edt.ShowDialog();
                 dESSERTSTableAdapter.Fill(cond_departmentDataSet.DESSERTS);
                 cond_departmentDataSet.AcceptChanges();
+                UpdateDessertsDataGridView();
             }
             catch (Exception ex)
             {
@@ -157,6 +173,7 @@ namespace CourseWorkDB
                     MessageBox.Show("Неможливо видалити дані, оскільки ці дані знаходяться в пов'язаних таблицях");
                 }
             }
+            UpdateDessertsDataGridView();
         }
 
         private void додатиВиробникаToolStripMenuItem_Click(object sender, EventArgs e)
