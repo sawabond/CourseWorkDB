@@ -47,6 +47,10 @@
             this.label_Search = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.textBox_FManufacturer = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBox_WeightTo = new System.Windows.Forms.TextBox();
+            this.textBox_WeightFrom = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cond_departmentDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dESSERTSBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +90,7 @@
             // 
             this.label_TitleFiltering.AutoSize = true;
             this.label_TitleFiltering.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_TitleFiltering.Location = new System.Drawing.Point(5, 99);
+            this.label_TitleFiltering.Location = new System.Drawing.Point(5, 113);
             this.label_TitleFiltering.Name = "label_TitleFiltering";
             this.label_TitleFiltering.Size = new System.Drawing.Size(164, 25);
             this.label_TitleFiltering.TabIndex = 49;
@@ -157,8 +161,8 @@
             // 
             this.comboBox_Sort.FormattingEnabled = true;
             this.comboBox_Sort.Items.AddRange(new object[] {
-            "dessert_name",
-            "retail_price"});
+            "назва десерта",
+            "ціна"});
             this.comboBox_Sort.Location = new System.Drawing.Point(10, 229);
             this.comboBox_Sort.Name = "comboBox_Sort";
             this.comboBox_Sort.Size = new System.Drawing.Size(194, 24);
@@ -168,7 +172,7 @@
             // 
             this.label_Sort.AutoSize = true;
             this.label_Sort.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label_Sort.Location = new System.Drawing.Point(6, 187);
+            this.label_Sort.Location = new System.Drawing.Point(6, 201);
             this.label_Sort.Name = "label_Sort";
             this.label_Sort.Size = new System.Drawing.Size(168, 25);
             this.label_Sort.TabIndex = 41;
@@ -215,11 +219,53 @@
             this.textBox_FManufacturer.Size = new System.Drawing.Size(151, 22);
             this.textBox_FManufacturer.TabIndex = 56;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(209, 167);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(19, 25);
+            this.label1.TabIndex = 60;
+            this.label1.Text = "-";
+            // 
+            // textBox_WeightTo
+            // 
+            this.textBox_WeightTo.Location = new System.Drawing.Point(234, 167);
+            this.textBox_WeightTo.Name = "textBox_WeightTo";
+            this.textBox_WeightTo.Size = new System.Drawing.Size(59, 22);
+            this.textBox_WeightTo.TabIndex = 59;
+            this.textBox_WeightTo.Text = "99999";
+            this.textBox_WeightTo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_WeightTo_KeyPress);
+            // 
+            // textBox_WeightFrom
+            // 
+            this.textBox_WeightFrom.Location = new System.Drawing.Point(143, 167);
+            this.textBox_WeightFrom.Name = "textBox_WeightFrom";
+            this.textBox_WeightFrom.Size = new System.Drawing.Size(60, 22);
+            this.textBox_WeightFrom.TabIndex = 58;
+            this.textBox_WeightFrom.Text = "0";
+            this.textBox_WeightFrom.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox_WeightFrom_KeyPress);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label4.Location = new System.Drawing.Point(5, 163);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(72, 25);
+            this.label4.TabIndex = 57;
+            this.label4.Text = "вагою:";
+            // 
             // SearchFilterSortForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(310, 334);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.textBox_WeightTo);
+            this.Controls.Add(this.textBox_WeightFrom);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox_FManufacturer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label_Search);
@@ -264,5 +310,9 @@
         private System.Windows.Forms.Label label_Search;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox textBox_FManufacturer;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox textBox_WeightTo;
+        private System.Windows.Forms.TextBox textBox_WeightFrom;
+        private System.Windows.Forms.Label label4;
     }
 }

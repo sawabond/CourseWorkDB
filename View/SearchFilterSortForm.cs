@@ -88,17 +88,43 @@ namespace CourseWorkDB
                 conn.Open();
                 FilteredDessertsDataSet = new DataSet();
 
+                var dict = new Dictionary<string, string>();
+                dict.Add("назва десерта", "dessert_name");
+                dict.Add("ціна", "retail_price");
+
                 var da = new SqlDataAdapter("SELECT * FROM DESSERTS " +
                     $"WHERE " +
                     $"dessert_name LIKE '%{textBox_FName.Text}%' " +
                     $"AND manufacturer_name LIKE '%{textBox_FManufacturer.Text}%' " +
                     $"AND retail_price BETWEEN {textBox_FPriceFrom.Text} AND {textBox_FPriceTo.Text} " +
-                    $"ORDER BY {(string.IsNullOrEmpty(comboBox_Sort.Text) ? "dessert_name" : comboBox_Sort.Text)} " + (radioButton_Descending.Checked ? "DESC" : String.Empty), conn);
+                    $"AND gross_weight BETWEEN {textBox_WeightFrom.Text} AND {textBox_WeightTo.Text} " +
+                    $"ORDER BY {(string.IsNullOrEmpty(comboBox_Sort.Text) ? "dessert_name" : dict[comboBox_Sort.Text])} " + (radioButton_Descending.Checked ? "DESC" : String.Empty), conn);
 
                 da.Fill(FilteredDessertsDataSet);
             }
             _main.UpdateMainDataGridViewSource(FilteredDessertsDataSet);
         }
-        
+
+        private void textBox_WeightFrom_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if ((char.IsDigit(number) == false)
+                && (char.IsControl(number) == false))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBox_WeightTo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char number = e.KeyChar;
+
+            if ((char.IsDigit(number) == false)
+                && (char.IsControl(number) == false))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
