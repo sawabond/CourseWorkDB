@@ -101,22 +101,22 @@ namespace CourseWorkDB
             _recommendationLetterText.Append("\nЦей лист був створений автоматично програмою 'Кондитерський відділ'\n");
             _recommendationLetterText.Append("Дякуємо, що користуєтеся нашим додатком!");
         }
-private void CollectRecommendations()
-{
-using (var conn = new SqlConnection(Main.CONNECTION_STRING))
-{
-    var da = new SqlDataAdapter
-        (
-        "SELECT TOP 25 PERCENT dp.articul Артикул, COUNT(dp.articul) Кількість_покупок FROM " +
-        "DESSERT_PURCHASE as dp INNER JOIN PURCHASE as p " +
-        "ON dp.purchase_id = p.purchase_id  INNER JOIN DESSERTS as d " +
-        "ON dp.articul = d.articul WHERE DATEADD(day, 7, p.purchase_date) > GETDATE() GROUP BY dp.articul", conn
-        );
-    var ds = new DataSet();
-    da.Fill(ds);
+        private void CollectRecommendations()
+        {
+            using (var conn = new SqlConnection(Main.CONNECTION_STRING))
+            {
+                var da = new SqlDataAdapter
+                    (
+                    "SELECT TOP 25 PERCENT dp.articul Артикул, COUNT(dp.articul) Кількість_покупок FROM " +
+                    "DESSERT_PURCHASE as dp INNER JOIN PURCHASE as p " +
+                    "ON dp.purchase_id = p.purchase_id  INNER JOIN DESSERTS as d " +
+                    "ON dp.articul = d.articul WHERE DATEADD(day, 7, p.purchase_date) > GETDATE() GROUP BY dp.articul", conn
+                    );
+                var ds = new DataSet();
+                da.Fill(ds);
 
-    _recommendationForm.dgMostPopularDesserts.DataSource = ds?.Tables[0];
-}
-}
+                _recommendationForm.dgMostPopularDesserts.DataSource = ds?.Tables[0];
+            }
+        }
     }
 }

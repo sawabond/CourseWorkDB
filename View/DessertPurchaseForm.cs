@@ -103,6 +103,20 @@ namespace CourseWorkDB
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBox_Income.Text == null)
+            {
+                MessageBox.Show("Введіть суму оплати.");
+                return;
+            }
+
+            int.TryParse(textBox_Income.Text, out int income);
+            int.TryParse(textBox_PurchaseSum.Text, out int purchSum);
+
+            if (income < purchSum)
+            {
+                MessageBox.Show("Внесена сума менша за суму покупки.");
+                return;
+            }
             textBox_Change.Text = (int.Parse(textBox_Income.Text) - int.Parse(textBox_PurchaseSum.Text)).ToString();
 
             using (var conn = new SqlConnection(Main.CONNECTION_STRING))

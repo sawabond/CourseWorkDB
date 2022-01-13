@@ -9,6 +9,7 @@ namespace CourseWorkDB
     {
         public static bool edit = true;
         public static readonly string CONNECTION_STRING = @"Data Source=DESKTOP-8OFU01P;Initial Catalog=cond_department;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+        public static DataGridView S_dataGridViewMain;
         public enum DessertRows
         {
             articul = 3
@@ -16,6 +17,7 @@ namespace CourseWorkDB
         public Main()
         {
             InitializeComponent();
+            S_dataGridViewMain = dataGridViewMain;
         }
         public void UpdateMainDataGridViewSource(DataSet dataSet)
         {
@@ -46,7 +48,18 @@ namespace CourseWorkDB
                 var ds = new DataSet();
                 da.Fill(ds);
 
+                int index = 0;
+                try
+                {
+                    index = dataGridViewMain.SelectedRows[0].Index;
+                }
+                catch (Exception) { }
                 dataGridViewMain.DataSource = ds?.Tables[0];
+                try
+                {
+                    dataGridViewMain.Rows[index].Selected = true;
+                }
+                catch (Exception) { }
             }
             //dataGridViewMain.Refresh();
         }
@@ -236,6 +249,18 @@ namespace CourseWorkDB
                 catch (Exception ex)
                 {
                     MessageBox.Show("Неможливо видалити дані, оскільки ці дані знаходяться в пов'язаних таблицях");
+                }
+                using (var conn = new SqlConnection(Main.CONNECTION_STRING))
+                {
+                    var da = new SqlDataAdapter(@"SELECT [manufacturer_name] назва
+      ,[head] голова
+      ,[phone] телефон
+      ,[adress] адреса
+      ,[city] місто
+  FROM [cond_department].[dbo].[MANUFACTURERS]", conn);
+                    var ds = new DataSet();
+                    da.Fill(ds);
+                    Main.S_dataGridViewMain.DataSource = ds.Tables[0];
                 }
             }
         }

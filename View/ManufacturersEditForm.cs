@@ -19,7 +19,7 @@ namespace CourseWorkDB
             InitializeComponent();
         }
         public ManufacturersEditForm(string manufacturerName, string headName,
-            string adress, string phoneNumber, string city) : this()
+            string phoneNumber, string adress, string city) : this()
         {
             textBox_HeadName.Text = headName;
             textBox_ManufacturerName.Text = manufacturerName;
@@ -50,6 +50,16 @@ namespace CourseWorkDB
                         var command = new SqlCommand(updateExpression, conn);
                         command.ExecuteNonQuery();
                         mANUFACTURERSTableAdapter.Update(cond_departmentDataSet.MANUFACTURERS);
+
+                        var da = new SqlDataAdapter(@"SELECT [manufacturer_name] назва
+      ,[head] голова
+      ,[phone] телефон
+      ,[adress] адреса
+      ,[city] місто
+  FROM [cond_department].[dbo].[MANUFACTURERS]", conn);
+                        var ds = new DataSet();
+                        da.Fill(ds);
+                        Main.S_dataGridViewMain.DataSource = ds.Tables[0];
                     }
                 }
                 catch (Exception ex)
@@ -69,6 +79,20 @@ namespace CourseWorkDB
                         textBox_Adress.Text.Trim(),
                         textBox_City.Text.Trim()
                     );
+
+                    using (var conn = new SqlConnection(Main.CONNECTION_STRING))
+                    {
+                        var da = new SqlDataAdapter(@"SELECT [manufacturer_name] назва
+      ,[head] голова
+      ,[phone] телефон
+      ,[adress] адреса
+      ,[city] місто
+  FROM [cond_department].[dbo].[MANUFACTURERS]", conn);
+                        var ds = new DataSet();
+                        da.Fill(ds);
+                        Main.S_dataGridViewMain.DataSource = ds.Tables[0];
+                    }
+                    
                 }
                 catch (Exception ex)
                 {
